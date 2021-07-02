@@ -1,0 +1,3 @@
+import java.util.Arrays;
+
+Arrays.sort(arr);
