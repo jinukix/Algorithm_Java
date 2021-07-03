@@ -5,4 +5,9 @@ public class Solution {
         int l = phone_number.length();
         return  "*".repeat(l-4) + phone_number.substring(l-4, l);
     }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        sol.solution("01012341234");
+    }
 }
