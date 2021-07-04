@@ -1,6 +1,0 @@
-import java.util.Arrays;
-
-Arrays.sort(arr);
-
-배열 Array
-@

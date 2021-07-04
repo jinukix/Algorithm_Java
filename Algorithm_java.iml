@@ -3,9 +3,10 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/algo" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/예산" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/직사각형 별 찍기" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/programmers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/note" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
