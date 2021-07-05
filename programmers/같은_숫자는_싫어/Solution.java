@@ -1,4 +1,4 @@
-package 같은_숫자는_씷어;
+package 같은_숫자는_싫어;
 
 import java.util.*;
 
