@@ -9,6 +9,7 @@ class Solution {
             int r = n % 3;
             n = n / 3;
 
+
             ans.insert(0, "124".charAt(r));
         }
 
