@@ -10,19 +10,9 @@ public class Solution {
             for (int i = 0; i < skillTree.length(); i++) {
                 int idx = skill.indexOf(skillTree.charAt(i));
                 if (idx == -1 || idx == cnt++) continue;
-
-                ans--;
-                break;
+                else ans--; break;
             }
         }
-
         return ans;
-    }
-
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-        String skill = "CBD";
-        String[] skillTrees = {"BACDE", "CBADF", "AECB", "BDA"};
-        System.out.println(sol.solution(skill, skillTrees));
     }
 }
