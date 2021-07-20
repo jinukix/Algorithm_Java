@@ -32,3 +32,4 @@ class Solution {
         System.out.println(sol.solution(cacheSize, cities));
     }
 }
+
