@@ -3,10 +3,8 @@ package Sorting;
 import java.util.*;
 
 public class FindPath {
-    private static int MAX_INT = Integer.MAX_VALUE;;
     public static void main(String[] args4) {
         dijkstra(6);
-
         floydWarshall(6);
     }
 
@@ -54,7 +52,7 @@ public class FindPath {
         map.get(5).add(new Integer[]{6, 2});
 
         int[] distance = new int[n+1];
-        Arrays.fill(distance, MAX_INT);
+        Arrays.fill(distance,Integer.MAX_VALUE);
 
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>(
                 Comparator.comparingInt((Node node) -> node.distance)
@@ -89,7 +87,7 @@ public class FindPath {
     하지만 매번 방문하지 않은 노드 중에서 최단 거리를 갖는 노드를 찾을 필요가 없다는 점에서 차이가 있다.
      */
     public static void floydWarshall(int n) {
-        int max = MAX_INT;
+        int max =Integer.MAX_VALUE;
         long[][] graph = new long[n][n];
 
         for (int i = 1; i < n; i++) {

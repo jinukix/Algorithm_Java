@@ -39,10 +39,8 @@ public class DfsBfs {
         System.out.print(start + " ");
         for (int point : graph[start]) {
             if (!visited[point]) dfs(graph, point, visited);
-  }
+        }
     }
-
-
     /*
     BFS 넓이 우선 탐색
 
