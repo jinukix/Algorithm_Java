@@ -29,4 +29,9 @@ class Solution {
 
         return ++result;
     }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        solution.solution(8,4,7);
+    }
 }
