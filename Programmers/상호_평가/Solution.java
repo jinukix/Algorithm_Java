@@ -3,8 +3,8 @@ package 상호_평가;
 class Solution {
     public String solution(int[][] scores) {
         StringBuilder sb = new StringBuilder();
-
         int score;
+
         for (int i = 0; i < scores[0].length; i++) {
             int selfScore = scores[i][i];
             boolean isMax = true;
