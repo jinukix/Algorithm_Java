@@ -1,7 +1,5 @@
 package _2xn타일링;
 
-import java.util.Arrays;
-
 class Solution {
     public int solution(int n) {
         int[] dp = new int[n+1];
