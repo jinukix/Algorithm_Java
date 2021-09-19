@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Basic" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Programmers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/acmic" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Codeforces" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
