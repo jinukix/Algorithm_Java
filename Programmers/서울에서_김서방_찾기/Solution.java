@@ -10,7 +10,7 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        String[] seoul = {"Kim", "qwe", "asd"};
+        String[] seoul = {"Kim", "qwe", "넷웟.text"};
         System.out.println(sol.solution(seoul));
     }
 }

@@ -14,7 +14,7 @@ class Solution {
         a = findParent(parent, a);
         b = findParent(parent, b);
 
-        if (a<b) {
+        if (a < b) {
             parent[b] = a;
         }
         else {
@@ -24,7 +24,6 @@ class Solution {
 
     public int solution(int n, int[][] computers) {
         int[] parent = new int[n];
-
         for (int i = 0; i < n; i++) {
             parent[i] = i;
         }

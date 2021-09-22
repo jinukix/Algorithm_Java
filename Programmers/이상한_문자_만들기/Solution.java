@@ -25,6 +25,6 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        System.out.println(sol.solution("asd qwer qlwdmqwkld, qwdklm  x x x a"));
+        System.out.println(sol.solution("넷웟.text qwer qlwdmqwkld, qwdklm  x x x a"));
     }
 }
