@@ -1,4 +1,4 @@
-package 나무_자르기;
+package _2805_나무_자르기;
 
 import java.io.*;
 import java.util.StringTokenizer;
