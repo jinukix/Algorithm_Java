@@ -1,6 +1,6 @@
 public class BinaryConversion {
     public static void main(String[] args) {
-        conversion(111, 2);
+        conversion(111123, 2);
     }
 
     public static void conversion(int number, int N){
