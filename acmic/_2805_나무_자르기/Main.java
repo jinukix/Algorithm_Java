@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -23,12 +24,12 @@ public class Main {
         }
 
         while (start < end) {
-            int mid = (start+end) / 2;
+            int mid = (start + end) / 2;
 
             long sum = 0;
-            for (int tree: arr) {
+            for (int tree : arr) {
                 if (tree > mid) {
-                    sum += (tree-mid);
+                    sum += (tree - mid);
                 }
             }
 
@@ -39,7 +40,7 @@ public class Main {
             }
         }
 
-        bw.write(String.valueOf(start-1));
+        bw.write(String.valueOf(start - 1));
         bw.flush();
         bw.close();
         br.close();

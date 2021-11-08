@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class GraphEtc {
+
     public static void main(String[] args) {
         disjointSet(6);
         cruscal(7);
@@ -20,17 +21,21 @@ public class GraphEtc {
         a = findParent(parent, a);
         b = findParent(parent, b);
 
-        if (a<b) parent[b] = a;
-        else parent[a] = b;
+        if (a < b) {
+            parent[b] = a;
+        } else {
+            parent[a] = b;
+        }
     }
+
     /*
     분리 집합
 
     분리집합이란 중복 포함된 원소가 없는 집합.
      */
     public static void disjointSet(int v) {
-        int[] parent = new int[v+1];
-        for (int i = 0; i < v+1; i++) {
+        int[] parent = new int[v + 1];
+        for (int i = 0; i < v + 1; i++) {
             parent[i] = i;
         }
 
@@ -40,18 +45,19 @@ public class GraphEtc {
         unionParent(parent, 5, 6);
 
         System.out.print("각 원소가 속한 집합: ");
-        for (int i = 1; i < v+1; i++) {
+        for (int i = 1; i < v + 1; i++) {
             System.out.print(findParent(parent, i) + " ");
         }
 
         System.out.println();
 
         System.out.print("부모 테이블: ");
-        for (int i = 1; i < v+1; i++) {
+        for (int i = 1; i < v + 1; i++) {
             System.out.print(parent[i] + " ");
         }
         System.out.println();
     }
+
     /*
     크루스칼 알고리즘
 
@@ -59,23 +65,23 @@ public class GraphEtc {
     최소 신장 트리를 찾는 알고리즘
      */
     public static void cruscal(int v) {
-        int[] parent = new int[v+1];
-        for (int i = 0; i < v+1; i++) {
+        int[] parent = new int[v + 1];
+        for (int i = 0; i < v + 1; i++) {
             parent[i] = i;
         }
 
         ArrayList<Integer[]> edges = new ArrayList<>();
 
         // 출발->도착 비용
-        edges.add(new Integer[] {1, 2, 29});
-        edges.add(new Integer[] {1, 5, 75});
-        edges.add(new Integer[] {2, 3, 35});
-        edges.add(new Integer[] {2, 6, 34});
-        edges.add(new Integer[] {3, 4, 7});
-        edges.add(new Integer[] {4, 6, 23});
-        edges.add(new Integer[] {4, 7, 13});
-        edges.add(new Integer[] {5, 6, 53});
-        edges.add(new Integer[] {6, 7, 25});
+        edges.add(new Integer[]{1, 2, 29});
+        edges.add(new Integer[]{1, 5, 75});
+        edges.add(new Integer[]{2, 3, 35});
+        edges.add(new Integer[]{2, 6, 34});
+        edges.add(new Integer[]{3, 4, 7});
+        edges.add(new Integer[]{4, 6, 23});
+        edges.add(new Integer[]{4, 7, 13});
+        edges.add(new Integer[]{5, 6, 53});
+        edges.add(new Integer[]{6, 7, 25});
 
         edges.sort(new Comparator<Integer[]>() {
             @Override
@@ -108,24 +114,24 @@ public class GraphEtc {
      */
 
     public static void topologySort(int v) {
-        ArrayList<Integer>[] graph = new ArrayList[v+1];
+        ArrayList<Integer>[] graph = new ArrayList[v + 1];
         for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
 
-        int[] indegree = new int[v+1];
+        int[] indegree = new int[v + 1];
         int[][] inputs = {
-                {1, 2}, {1, 5}, {2, 3}, {2, 6},
-                {3, 4}, {4, 7}, {5, 6}, {6, 4},
+            {1, 2}, {1, 5}, {2, 3}, {2, 6},
+            {3, 4}, {4, 7}, {5, 6}, {6, 4},
         };
 
-        for (int[] input: inputs) {
+        for (int[] input : inputs) {
             graph[input[0]].add(input[1]);
             indegree[input[1]]++;
         }
 
         Queue<Integer> queue = new LinkedList<>();
-        for (int i = 1; i < v+1; i++) {
+        for (int i = 1; i < v + 1; i++) {
             if (indegree[i] == 0) {
                 queue.add(i);
             }
@@ -136,7 +142,7 @@ public class GraphEtc {
             int now = queue.poll();
             result.add(now);
 
-            for (Integer gp: graph[now]) {
+            for (Integer gp : graph[now]) {
                 indegree[gp] -= 1;
 
                 if (indegree[gp] == 0) {

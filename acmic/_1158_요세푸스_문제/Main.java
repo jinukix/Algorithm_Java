@@ -6,6 +6,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -22,7 +23,7 @@ public class Main {
         StringBuilder sb = new StringBuilder("<");
 
         while (queue.size() != 1) {
-            for (int i = 0; i < k-1; i++) {
+            for (int i = 0; i < k - 1; i++) {
                 queue.add(queue.poll());
             }
             sb.append(queue.poll()).append(", ");

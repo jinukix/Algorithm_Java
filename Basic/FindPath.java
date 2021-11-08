@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class FindPath {
+
     public static void main(String[] args4) {
         dijkstra(6);
         floydWarshall(6);
@@ -21,6 +22,7 @@ public class FindPath {
      */
     public static void dijkstra(int n) {
         class Node {
+
             final int distance;
             final int now;
 
@@ -32,7 +34,7 @@ public class FindPath {
 
         HashMap<Integer, ArrayList<Integer[]>> map = new HashMap();
 
-        for (int i = 0; i < n+1; i++) {
+        for (int i = 0; i < n + 1; i++) {
             map.put(i, new ArrayList<>());
         }
 
@@ -49,22 +51,24 @@ public class FindPath {
         map.get(5).add(new Integer[]{3, 1});
         map.get(5).add(new Integer[]{6, 2});
 
-        int[] distance = new int[n+1];
-        Arrays.fill(distance,Integer.MAX_VALUE);
+        int[] distance = new int[n + 1];
+        Arrays.fill(distance, Integer.MAX_VALUE);
 
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>(
-                Comparator.comparingInt((Node node) -> node.distance)
+            Comparator.comparingInt((Node node) -> node.distance)
         );
 
         int start = 1;
         priorityQueue.add(new Node(0, start));
         distance[start] = 0;
 
-        while (priorityQueue.size() >0) {
+        while (priorityQueue.size() > 0) {
             Node node = priorityQueue.poll();
-            if (distance[node.now] < node.distance) continue;
+            if (distance[node.now] < node.distance) {
+                continue;
+            }
 
-            for (Integer[] arr: map.get(node.now)) {
+            for (Integer[] arr : map.get(node.now)) {
                 int cost = node.distance + arr[1];
 
                 if (cost < distance[arr[0]]) {
@@ -76,6 +80,7 @@ public class FindPath {
 
         System.out.println(Arrays.toString(distance));
     }
+
     /*
     플로이드 워셜
 
@@ -85,7 +90,7 @@ public class FindPath {
     하지만 매번 방문하지 않은 노드 중에서 최단 거리를 갖는 노드를 찾을 필요가 없다는 점에서 차이가 있다.
      */
     public static void floydWarshall(int n) {
-        int max =Integer.MAX_VALUE;
+        int max = Integer.MAX_VALUE;
         long[][] graph = new long[n][n];
 
         for (int i = 1; i < n; i++) {
@@ -112,8 +117,11 @@ public class FindPath {
 
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < n; j++) {
-                if (graph[i][j] == max) System.out.print("INF ");
-                else System.out.print(graph[i][j] + " ");
+                if (graph[i][j] == max) {
+                    System.out.print("INF ");
+                } else {
+                    System.out.print(graph[i][j] + " ");
+                }
             }
             System.out.println();
         }

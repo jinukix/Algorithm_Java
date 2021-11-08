@@ -2,22 +2,23 @@ import java.util.Arrays;
 
 // 순열
 public class Permutation {
+
     public static void main(String[] args) {
-        int[] arr = {1,2,3};
-        int[] output = new int [arr.length];
-        boolean[] visited = new boolean [arr.length];
+        int[] arr = {1, 2, 3};
+        int[] output = new int[arr.length];
+        boolean[] visited = new boolean[arr.length];
 
         permutation(arr, output, visited, 0, arr.length, 3);
     }
 
     static void permutation(int[] arr, int[] output, boolean[] visited, int depth, int n, int r) {
-        if (depth==r) {
+        if (depth == r) {
             System.out.println(Arrays.toString(output));
             return;
         }
 
         // 방법1. visited
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
                 output[depth] = arr[i];

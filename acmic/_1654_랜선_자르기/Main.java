@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -26,14 +27,14 @@ public class Main {
             mid = (left + right) / 2;
 
             long cnt = 0;
-            for (int x: arr) {
-                cnt += (x/mid);
+            for (int x : arr) {
+                cnt += (x / mid);
             }
 
             if (cnt < n) {
-                right = mid-1;
+                right = mid - 1;
             } else if (cnt >= n) {
-                left = mid+1;
+                left = mid + 1;
             }
         }
 

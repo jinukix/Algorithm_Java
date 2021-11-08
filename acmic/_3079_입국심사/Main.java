@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -24,7 +25,7 @@ public class Main {
 
         right *= m;
         while (left <= right) {
-            long mid = (left+right)/2;
+            long mid = (left + right) / 2;
             long cnt = 0;
 
             for (int i : arr) {
@@ -32,7 +33,7 @@ public class Main {
             }
 
             if (cnt >= m) {
-                right = mid -1;
+                right = mid - 1;
             } else {
                 left = mid + 1;
             }

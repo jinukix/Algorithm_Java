@@ -7,8 +7,9 @@ import java.util.Arrays;
  */
 
 public class Sorting {
+
     public static void main(String[] args) {
-        int[] arr = {0,1,2,3,4,5,6,7,8,9,10};
+        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         shuffle(arr);
         selectSort(arr);
         System.out.println("선택 정렬: " + Arrays.toString(arr));
@@ -22,7 +23,7 @@ public class Sorting {
         System.out.println("버블 정렬" + Arrays.toString(arr));
 
         shuffle(arr);
-        quickSort(arr, 0, arr.length-1);
+        quickSort(arr, 0, arr.length - 1);
         System.out.println("퀵 정렬" + Arrays.toString(arr));
     }
 
@@ -35,9 +36,11 @@ public class Sorting {
     static void shuffle(int[] arr) {
         int x, y;
         for (int i = 0; i < 100; i++) {
-            x = (int)(Math.random() * arr.length);
-            y = (int)(Math.random() * arr.length);
-            if(x==y)continue;
+            x = (int) (Math.random() * arr.length);
+            y = (int) (Math.random() * arr.length);
+            if (x == y) {
+                continue;
+            }
 
             swap(arr, x, y);
         }
@@ -54,7 +57,9 @@ public class Sorting {
             minIndex = arr[i];
 
             for (int j = i; j < arr.length; j++) {
-                if (arr[minIndex] > arr[j]) minIndex = j;
+                if (arr[minIndex] > arr[j]) {
+                    minIndex = j;
+                }
             }
 
             swap(arr, i, minIndex);
@@ -74,8 +79,11 @@ public class Sorting {
          */
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
-                if (arr[j] < arr[j-1]) swap(arr, j, j-1);
-                else break;
+                if (arr[j] < arr[j - 1]) {
+                    swap(arr, j, j - 1);
+                } else {
+                    break;
+                }
             }
         }
     }
@@ -90,9 +98,11 @@ public class Sorting {
         2. 가장 큰 숫자가 맨 뒤로 갔으므로, 마지막 인덱스는 제외하고 반복
          */
 
-        for (int i = arr.length-1; i > 0; i--) {
+        for (int i = arr.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-                if (arr[j] > arr[j+1]) swap(arr, j, j+1);
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                }
             }
         }
     }
@@ -110,21 +120,30 @@ public class Sorting {
         3-2. 엇갈렸다면 작은 데이터와 피벗의 위치를 바꾸고 피벗의 위치를 고정, 피벗의 위치를 기준으로 왼쪽 오른쪽 분할 후 다시 반복.
          */
 
-        if (start >= end) return;
+        if (start >= end) {
+            return;
+        }
 
         int pivot = start;
         int left = start + 1;
         int right = end;
 
         while (left <= right) {
-            while (left <= end && arr[left] <= arr[pivot]) left+=1;
-            while (right > start && arr[right] >= arr[pivot]) right-=1;
+            while (left <= end && arr[left] <= arr[pivot]) {
+                left += 1;
+            }
+            while (right > start && arr[right] >= arr[pivot]) {
+                right -= 1;
+            }
 
-            if (left > right) swap(arr, right, pivot);// 엇갈린 경우
-            else swap(arr, left, right);
+            if (left > right) {
+                swap(arr, right, pivot);// 엇갈린 경우
+            } else {
+                swap(arr, left, right);
+            }
         }
 
-        quickSort(arr, start, right-1);
-        quickSort(arr, right+1, end);
+        quickSort(arr, start, right - 1);
+        quickSort(arr, right + 1, end);
     }
 }

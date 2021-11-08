@@ -1,5 +1,6 @@
 // 조합
 public class Combination {
+
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
         boolean[] visited = new boolean[arr.length];

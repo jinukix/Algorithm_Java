@@ -16,6 +16,7 @@ DP의 대표 예시로는 피보나치 수열이 있습니다.
  */
 
 public class DP {
+
     static long[] dp = new long[30];
 
     public static void main(String[] args) {
@@ -24,14 +25,16 @@ public class DP {
         dp[2] = 2;
 
         for (int i = 3; i < dp.length; i++) {
-            dp[i] = dp[i-1] + dp[i-2];
+            dp[i] = dp[i - 1] + dp[i - 2];
         }
-        System.out.println(dp[dp.length-1]);
+        System.out.println(dp[dp.length - 1]);
         System.out.println(fibo(29));
     }
 
     static long fibo(int x) {
-        if (x==1 || x==2) return x;
-        return fibo(x-1) + fibo(x-2);
+        if (x == 1 || x == 2) {
+            return x;
+        }
+        return fibo(x - 1) + fibo(x - 2);
     }
 }

@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -16,15 +17,15 @@ public class Main {
         int result = 1;
         while (a != b) {
             result++;
-            if (a>b) {
+            if (a > b) {
                 result = -1;
                 break;
             }
 
             if (b % 10 == 1) {
-                b/= 10;
-            } else if (b % 2 == 0){
-                b/= 2;
+                b /= 10;
+            } else if (b % 2 == 0) {
+                b /= 2;
             } else {
                 result = -1;
                 break;
