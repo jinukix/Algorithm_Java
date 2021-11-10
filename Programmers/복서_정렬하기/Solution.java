@@ -6,12 +6,13 @@ import java.util.Collections;
 import java.util.Objects;
 
 class Player implements Comparable<Player> {
+
     int idx;
     int weight;
     Float winRate;
     int heavierWinCnt;
 
-    Player (int idx, int weight, float winRate, int heavierWinCnt) {
+    Player(int idx, int weight, float winRate, int heavierWinCnt) {
         this.idx = idx;
         this.weight = weight;
         this.winRate = winRate;
@@ -34,6 +35,7 @@ class Player implements Comparable<Player> {
 }
 
 class Solution {
+
     public int[] solution(int[] weights, String[] head2head) {
         ArrayList<Player> playes = new ArrayList<>();
         for (int i = 0; i < weights.length; i++) {
@@ -45,7 +47,9 @@ class Solution {
             for (int j = 0; j < charArr.length; j++) {
                 char ch = charArr[j];
 
-                if (ch != 'N') totalCnt++;
+                if (ch != 'N') {
+                    totalCnt++;
+                }
                 if (ch == 'W') {
                     winCnt++;
                     if (weights[i] < weights[j]) {
@@ -61,7 +65,7 @@ class Solution {
                 winRate = (float) winCnt / totalCnt;
             }
 
-            playes.add(new Player(i+1, weights[i], winRate, heavierWinCnt));
+            playes.add(new Player(i + 1, weights[i], winRate, heavierWinCnt));
         }
         Collections.sort(playes);
 
@@ -75,6 +79,7 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        System.out.println(Arrays.toString(sol.solution(new int[]{50, 82, 75, 120}, new String[]{"NLWL", "WNLL", "LWNW", "WWLN"})));
+        System.out.println(Arrays.toString(sol.solution(new int[]{50, 82, 75, 120},
+            new String[]{"NLWL", "WNLL", "LWNW", "WWLN"})));
     }
 }
