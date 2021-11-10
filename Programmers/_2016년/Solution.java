@@ -6,10 +6,11 @@ import java.util.Date;
 import java.util.Locale;
 
 class Solution {
+
     public String solution(int a, int b) {
         String answer = "";
         Calendar cal = Calendar.getInstance();
-        cal.set(2016, a-1, b);
+        cal.set(2016, a - 1, b);
         Date date = cal.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("E", Locale.ENGLISH);
 

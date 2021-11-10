@@ -3,12 +3,13 @@ package 퍼즐_조각_채우기;
 import java.util.*;
 
 class Block {
+
     int count;
     int h;
     int w;
     int[][] pieces;
 
-    Block (int[][] piece, int w, int h, int count) {
+    Block(int[][] piece, int w, int h, int count) {
         this.pieces = piece;
         this.w = w;
         this.h = h;
@@ -20,7 +21,7 @@ class Block {
 
         for (int y = 0; y < w; y++) {
             for (int x = 0; x < h; x++) {
-                newPieces[y][x] = pieces[h-1-x][y];
+                newPieces[y][x] = pieces[h - 1 - x][y];
             }
         }
 
@@ -32,10 +33,11 @@ class Block {
 }
 
 class Solution {
-    ArrayList<Block> blockList = new ArrayList<>();
-    int[][] dir = {{1,0}, {0,1}, {-1,0}, {0,-1}};
 
-    public Block findBlock(int[][] table, int y, int x, int findNum){
+    ArrayList<Block> blockList = new ArrayList<>();
+    int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
+    public Block findBlock(int[][] table, int y, int x, int findNum) {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{y, x});
         table[y][x] = 2;
@@ -53,27 +55,36 @@ class Solution {
                 int dy = start[0] + dir[i][0];
                 int dx = start[1] + dir[i][1];
 
-                if (0<= dy && dy < table.length && 0 <= dx && dx < table.length && table[dy][dx] == findNum) {
+                if (0 <= dy && dy < table.length && 0 <= dx && dx < table.length
+                    && table[dy][dx] == findNum) {
                     queue.add(new int[]{dy, dx});
                     table[dy][dx] = 2;
                     count++;
 
-                    if (minY > dy) minY = dy;
-                    if (minX > dx) minX = dx;
-                    if (maxX < dx) maxX = dx;
-                    if (maxY < dy) maxY = dy;
+                    if (minY > dy) {
+                        minY = dy;
+                    }
+                    if (minX > dx) {
+                        minX = dx;
+                    }
+                    if (maxX < dx) {
+                        maxX = dx;
+                    }
+                    if (maxY < dy) {
+                        maxY = dy;
+                    }
                 }
             }
         }
 
-        int h = maxY-minY+1;
-        int w = maxX-minX+1;
+        int h = maxY - minY + 1;
+        int w = maxX - minX + 1;
 
         int[][] block = new int[h][w];
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
-                if (table[minY+i][minX+j] == 2) {
+                if (table[minY + i][minX + j] == 2) {
                     block[i][j] = 1;
                 } else {
                     block[i][j] = 0;
@@ -88,7 +99,9 @@ class Solution {
         int result = 0;
         for (int y = 0; y < table.length; y++) {
             for (int x = 0; x < table[y].length; x++) {
-                if (table[y][x] == 1) blockList.add(findBlock(table, y, x, 1));
+                if (table[y][x] == 1) {
+                    blockList.add(findBlock(table, y, x, 1));
+                }
             }
         }
 
@@ -97,10 +110,12 @@ class Solution {
                 if (game_board[y][x] == 0) {
                     Block boardBlock = findBlock(game_board, y, x, 0);
                     loop:
-                    for (Block tableBlock:blockList) {
+                    for (Block tableBlock : blockList) {
                         if ((boardBlock.count != tableBlock.count) ||
                             !(boardBlock.w == tableBlock.w && boardBlock.h == tableBlock.h ||
-                            boardBlock.w == tableBlock.h && boardBlock.h == tableBlock.w)) continue;
+                                boardBlock.w == tableBlock.h && boardBlock.h == tableBlock.w)) {
+                            continue;
+                        }
 
                         for (int i = 0; i < 4; i++) {
                             if (boardBlock.w == tableBlock.w && boardBlock.h == tableBlock.h) {
@@ -109,7 +124,8 @@ class Solution {
                                 loop2:
                                 for (int yy = 0; yy < boardBlock.h; yy++) {
                                     for (int xx = 0; xx < boardBlock.w; xx++) {
-                                        if (boardBlock.pieces[yy][xx] != tableBlock.pieces[yy][xx]) {
+                                        if (boardBlock.pieces[yy][xx]
+                                            != tableBlock.pieces[yy][xx]) {
                                             isEquals = false;
                                             break loop2;
                                         }
@@ -117,7 +133,7 @@ class Solution {
                                 }
 
                                 if (isEquals) {
-                                    result+=boardBlock.count;
+                                    result += boardBlock.count;
                                     blockList.remove(tableBlock);
                                     break loop;
                                 }
@@ -136,20 +152,20 @@ class Solution {
     public static void main(String[] args) {
         Solution sol = new Solution();
         int[][] game_board = {
-                {1,1,0,0,1,0},
-                {0,0,1,0,1,0},
-                {0,1,1,0,0,1},
-                {1,1,0,1,1,1},
-                {1,0,0,0,1,0},
-                {0,1,1,1,0,0}
+            {1, 1, 0, 0, 1, 0},
+            {0, 0, 1, 0, 1, 0},
+            {0, 1, 1, 0, 0, 1},
+            {1, 1, 0, 1, 1, 1},
+            {1, 0, 0, 0, 1, 0},
+            {0, 1, 1, 1, 0, 0}
         };
         int[][] table = {
-                {1,0,0,1,1,0},
-                {1,0,1,0,1,0},
-                {0,1,1,0,1,1},
-                {0,0,1,0,0,0},
-                {1,1,0,1,1,0},
-                {0,1,0,0,0,0}
+            {1, 0, 0, 1, 1, 0},
+            {1, 0, 1, 0, 1, 0},
+            {0, 1, 1, 0, 1, 1},
+            {0, 0, 1, 0, 0, 0},
+            {1, 1, 0, 1, 1, 0},
+            {0, 1, 0, 0, 0, 0}
         };
         sol.solution(game_board, table);
     }

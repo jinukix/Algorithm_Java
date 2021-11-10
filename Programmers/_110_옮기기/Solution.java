@@ -3,6 +3,7 @@ package _110_옮기기;
 import java.util.Stack;
 
 class Solution {
+
     public String conversion(String s) {
         Stack<Character> stack = new Stack<Character>();
         int cnt = 0;
@@ -10,7 +11,7 @@ class Solution {
         for (int i = 0; i < s.length(); i++) {
             stack.push(s.charAt(i));
 
-            if (stack.size()>=3) {
+            if (stack.size() >= 3) {
                 if (stack.peek() != '0') {
                     continue;
                 }
@@ -33,7 +34,9 @@ class Solution {
             }
         }
 
-        if (cnt==0) return s;
+        if (cnt == 0) {
+            return s;
+        }
 
         int idx = stack.size();
         boolean flag = false;
@@ -52,7 +55,7 @@ class Solution {
 
         for (int i = 0; i < cnt; i++) {
             sb.insert(idx, "110");
-            idx+=3;
+            idx += 3;
         }
 
         return sb.toString();

@@ -3,12 +3,13 @@ package k번쨰수;
 import java.util.Arrays;
 
 class Solution {
+
     public int[] solution(int[] array, int[][] commands) {
         int[] ans = new int[commands.length];
         for (int i = 0; i < commands.length; i++) {
-            int[] arr = Arrays.copyOfRange(array, commands[i][0]-1, commands[i][1]);
+            int[] arr = Arrays.copyOfRange(array, commands[i][0] - 1, commands[i][1]);
             Arrays.sort(arr);
-            ans[i] = arr[commands[i][2]-1];
+            ans[i] = arr[commands[i][2] - 1];
         }
 
         return ans;

@@ -3,12 +3,13 @@ package 경주로_건설;
 import java.util.PriorityQueue;
 
 class Node implements Comparable<Node> {
+
     int y;
     int x;
     int cnt;
     boolean isVertical;
 
-    Node (int y, int x, int cnt, boolean isVertical) {
+    Node(int y, int x, int cnt, boolean isVertical) {
         this.y = y;
         this.x = x;
         this.cnt = cnt;
@@ -22,7 +23,8 @@ class Node implements Comparable<Node> {
 }
 
 class Solution {
-    int[][] dir = {{0,1}, {0,-1}, {1,0}, {-1,0}};
+
+    int[][] dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
     public int solution(int[][] board) {
         int result = Integer.MAX_VALUE;
@@ -49,16 +51,16 @@ class Solution {
                         cnt += 500;
                     }
 
-                    if (board[dy][dx] != 0 & board[dy][dx] < cnt && visited[dy][dx][i/2]) {
+                    if (board[dy][dx] != 0 & board[dy][dx] < cnt && visited[dy][dx][i / 2]) {
                         continue;
                     }
 
-                    if (dy == r-1 && dx == r-1) {
+                    if (dy == r - 1 && dx == r - 1) {
                         result = Math.min(result, cnt);
                     }
 
                     board[dy][dx] = cnt;
-                    visited[dy][dx][i/2] = true;
+                    visited[dy][dx][i / 2] = true;
                     priorityQueue.add(new Node(dy, dx, cnt, isVertical));
                 }
             }
@@ -69,8 +71,8 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        System.out.println(sol.solution(new int[][] {
-                {0,0,1,0},{0,0,0,0},{0,1,0,1},{1,0,0,0}
+        System.out.println(sol.solution(new int[][]{
+            {0, 0, 1, 0}, {0, 0, 0, 0}, {0, 1, 0, 1}, {1, 0, 0, 0}
         }));
     }
 }

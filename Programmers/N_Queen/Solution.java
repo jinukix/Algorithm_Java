@@ -1,11 +1,12 @@
 package N_Queen;
 
 public class Solution {
+
     int result = 0;
     int[] graph;
 
     public void dfs(int r, int n) {
-        if (r==n) {
+        if (r == n) {
             result++;
             return;
         }
@@ -14,14 +15,14 @@ public class Solution {
             graph[r] = i;
 
             if (check(r)) {
-                dfs(r+1, n);
+                dfs(r + 1, n);
             }
         }
     }
 
     public boolean check(int r) {
         for (int i = 0; i < r; i++) {
-            if (graph[r] == graph[i] || Math.abs(r-i) == Math.abs(graph[r] - graph[i])) {
+            if (graph[r] == graph[i] || Math.abs(r - i) == Math.abs(graph[r] - graph[i])) {
                 return false;
             }
         }

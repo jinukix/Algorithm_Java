@@ -3,20 +3,27 @@ package 후보키;
 import java.util.*;
 
 class CandidateKey {
+
     String[] stringArr;
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         CandidateKey asd1 = (CandidateKey) o;
 
         int cnt = 0;
         for (int i = 0; i < stringArr.length; i++) {
-            if (asd1.stringArr[i] == null || asd1.stringArr[i].equals(stringArr[i])) cnt++;
+            if (asd1.stringArr[i] == null || asd1.stringArr[i].equals(stringArr[i])) {
+                cnt++;
+            }
         }
 
-        return (cnt==stringArr.length);
+        return (cnt == stringArr.length);
     }
 
     @Override
@@ -26,13 +33,14 @@ class CandidateKey {
 }
 
 class Solution {
+
     ArrayList<Set<Integer>> result = new ArrayList<>();
 
     public int solution(String[][] relation) {
         Set<Integer> set = new HashSet<>();
         for (int i = 0; i < relation[0].length; i++) {
             set.clear();
-            combination(set, 0, relation, i+1);
+            combination(set, 0, relation, i + 1);
         }
 
         return result.size();
@@ -40,8 +48,10 @@ class Solution {
 
     void combination(Set<Integer> set, int start, String[][] relation, int end) {
         if (end == 0) {
-            for (Set<Integer> s: result) {
-                if (set.containsAll(s)) return;
+            for (Set<Integer> s : result) {
+                if (set.containsAll(s)) {
+                    return;
+                }
             }
 
             ArrayList<CandidateKey> l = new ArrayList<>();
@@ -51,11 +61,13 @@ class Solution {
                 stringArr.stringArr = new String[relation.length];
                 int cnt = 0;
 
-                for (Integer j: set) {
+                for (Integer j : set) {
                     stringArr.stringArr[cnt++] = relation[i][j];
                 }
 
-                if (l.contains(stringArr)) return;
+                if (l.contains(stringArr)) {
+                    return;
+                }
                 l.add(stringArr);
             }
 
@@ -66,7 +78,7 @@ class Solution {
 
         for (int i = start; i < relation[0].length; i++) {
             set.add(i);
-            combination(set, i+1, relation, end-1);
+            combination(set, i + 1, relation, end - 1);
             set.remove(i);
         }
     }

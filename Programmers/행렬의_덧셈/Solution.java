@@ -1,6 +1,7 @@
 package 행렬의_덧셈;
 
 class Solution {
+
     public int[][] solution(int[][] arr1, int[][] arr2) {
         int[][] ans = {};
         ans = arr1;

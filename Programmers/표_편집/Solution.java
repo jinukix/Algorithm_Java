@@ -3,6 +3,7 @@ package 표_편집;
 import java.util.Stack;
 
 class Solution {
+
     public String solution(int n, int k, String[] cmd) {
         Stack<Integer> stack = new Stack<>();
 
@@ -16,10 +17,14 @@ class Solution {
             } else if (c == 'C') {
                 stack.push(k);
                 n--;
-                if (n == k) k--;
+                if (n == k) {
+                    k--;
+                }
             } else if (c == 'Z') {
                 int r = stack.pop();
-                if (r <= k) k++;
+                if (r <= k) {
+                    k++;
+                }
                 n++;
             }
         }
@@ -33,8 +38,8 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        System.out.println(sol.solution(8,2 ,new String[] {
-            "D 2","C","U 3","C","D 4","C","U 2","Z","Z","U 1","C"
+        System.out.println(sol.solution(8, 2, new String[]{
+            "D 2", "C", "U 3", "C", "D 4", "C", "U 2", "Z", "Z", "U 1", "C"
         }));
     }
 }

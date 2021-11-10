@@ -1,11 +1,12 @@
 package N진수_게임;
 
 class Solution {
+
     public String solution(int n, int t, int m, int p) {
         StringBuilder convertSB = new StringBuilder();
         convertSB.append('0');
 
-        int count = ((t-1) * m) + p;
+        int count = ((t - 1) * m) + p;
         int num = 1;
         while (convertSB.length() < count) {
             String str = conversion(num, n);
@@ -15,7 +16,7 @@ class Solution {
 
         StringBuilder ans = new StringBuilder();
         for (int i = 0; i < t; i++) {
-            int idx = (m*i) + p-1;
+            int idx = (m * i) + p - 1;
             ans.append(convertSB.charAt(idx));
         }
 
@@ -26,9 +27,9 @@ class Solution {
         StringBuilder sb = new StringBuilder();
 
         while (num > 0) {
-            char ch = "0123456789ABCDEF".charAt(num%n);
+            char ch = "0123456789ABCDEF".charAt(num % n);
             sb.insert(0, ch);
-            num/=n;
+            num /= n;
         }
 
         return sb.toString();

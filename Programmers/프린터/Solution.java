@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 class Solution {
+
     public int solution(int[] priorities, int location) {
         Queue<Integer> queue = new LinkedList<>();
 
@@ -16,14 +17,18 @@ class Solution {
         while (!queue.isEmpty()) {
             int n = queue.poll();
 
-            if (n==priorities[priorities.length-1-idx]) {
+            if (n == priorities[priorities.length - 1 - idx]) {
                 idx++;
-                if (location == 0) break;
+                if (location == 0) {
+                    break;
+                }
             } else {
                 queue.add(n);
             }
 
-            if (--location<0) location = queue.size()-1;
+            if (--location < 0) {
+                location = queue.size() - 1;
+            }
         }
 
         return idx;

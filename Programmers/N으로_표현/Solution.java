@@ -1,12 +1,18 @@
 package N으로_표현;
 
 class Solution {
-    int result = -1;
-    public void dfs(int n, int num, int cnt, int val) {
-        if (cnt >8) return;
 
-        if (num == val){
-            if (result > cnt || result == -1) result = cnt;
+    int result = -1;
+
+    public void dfs(int n, int num, int cnt, int val) {
+        if (cnt > 8) {
+            return;
+        }
+
+        if (num == val) {
+            if (result > cnt || result == -1) {
+                result = cnt;
+            }
             return;
         }
 

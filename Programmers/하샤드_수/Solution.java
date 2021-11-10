@@ -1,6 +1,7 @@
 package 하샤드_수;
 
 class Solution {
+
     public boolean solution(int x) {
         String str = Integer.toString(x);
         int sum = 0;
@@ -17,19 +18,4 @@ class Solution {
         System.out.println(ans);
 
     }
-
-
 }
-
-/*
-
-def solution(x):
-    str_x= str(x)
-
-    a = sum([int(str_x[i]) for i in range(len(str_x))])
-
-    if x % a == 0:
-        return True
-    return False
-
- */

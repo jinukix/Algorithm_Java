@@ -3,14 +3,15 @@ package 같은_숫자는_싫어;
 import java.util.*;
 
 public class Solution {
-    public int[] solution(int []arr) {
+
+    public int[] solution(int[] arr) {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
         int prevNumber = 10;
-        for (int i = 0; i < arr.length; i++) {
-            if (prevNumber != arr[i]) {
-                arrayList.add(arr[i]);
-                prevNumber = arr[i];
+        for (int i : arr) {
+            if (prevNumber != i) {
+                arrayList.add(i);
+                prevNumber = i;
             }
         }
 

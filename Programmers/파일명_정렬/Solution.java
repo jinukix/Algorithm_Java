@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Solution {
+
     public String[] solution(String[] files) {
         Comparator<String> f = new Comparator<String>() {
             @Override
@@ -19,7 +20,8 @@ class Solution {
                     Matcher matcher2 = pattern.matcher(o2);
 
                     if (matcher1.find() && matcher2.find()) {
-                        return Integer.compare(Integer.parseInt(matcher1.group()), Integer.parseInt(matcher2.group()));
+                        return Integer.compare(Integer.parseInt(matcher1.group()),
+                            Integer.parseInt(matcher2.group()));
                     }
                 }
                 return CharSequence.compare(header1, header2);
