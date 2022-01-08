@@ -13,22 +13,27 @@ class Solution {
                 continue;
             }
 
-            String binaryString = Long.toBinaryString(numbers[i]);
+            String binaryString = Long.toBinaryString(num);
 
             if (!binaryString.contains("0")) {
                 binaryString = binaryString.replaceFirst("1", "10");
             } else {
-                int ZeroIdx = binaryString.lastIndexOf("0");
-                int OneIdx = binaryString.substring(ZeroIdx).indexOf("1") + ZeroIdx;
+                int zeroIdx = binaryString.lastIndexOf("0");
+                int oneIdx = binaryString.substring(zeroIdx).indexOf("1") + zeroIdx;
 
-                binaryString = binaryString.substring(0, ZeroIdx) + "1"
-                    + binaryString.substring(ZeroIdx + 1, OneIdx) + "0"
-                    + binaryString.substring(OneIdx + 1);
+                binaryString = binaryString.substring(0, zeroIdx) + "1"
+                    + binaryString.substring(zeroIdx + 1, oneIdx) + "0"
+                    + binaryString.substring(oneIdx + 1);
             }
 
-            result[i] = Long.parseLong(binaryString.toString(), 2);
+            result[i] = Long.parseLong(binaryString, 2);
         }
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        sol.solution(new long[]{1223});
     }
 }

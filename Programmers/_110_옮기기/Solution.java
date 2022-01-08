@@ -5,11 +5,11 @@ import java.util.Stack;
 class Solution {
 
     public String conversion(String s) {
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         int cnt = 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            stack.push(s.charAt(i));
+        for (char ch : s.toCharArray()) {
+            stack.push(ch);
 
             if (stack.size() >= 3) {
                 if (stack.peek() != '0') {
@@ -43,11 +43,13 @@ class Solution {
         StringBuilder sb = new StringBuilder();
 
         while (!stack.isEmpty()) {
-            if (!flag && stack.peek() == '1') {
-                idx--;
-            }
-            if (!flag && stack.peek() == '0') {
-                flag = true;
+            if (!flag) {
+                char peekCh = stack.peek();
+                if (peekCh == '1') {
+                    idx--;
+                } else if (peekCh == '0') {
+                    flag = true;
+                }
             }
 
             sb.insert(0, stack.pop());

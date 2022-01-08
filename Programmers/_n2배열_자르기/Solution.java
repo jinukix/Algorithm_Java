@@ -1,7 +1,6 @@
 package _n2배열_자르기;
 
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicInteger;
 
 class Solution {
 

@@ -7,16 +7,15 @@ class Solution {
 
         while (n > 0) {
             n -= 1;
-            int r = n % 3;
+            ans.insert(0, "124".charAt(n % 3));
             n = n / 3;
-
-            ans.insert(0, "124".charAt(r));
         }
 
         return ans.toString();
     }
 
     public static void main(String[] args) {
-        int x = 1;
+        Solution sol = new Solution();
+        System.out.println(sol.solution(4));
     }
 }
