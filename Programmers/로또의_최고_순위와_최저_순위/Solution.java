@@ -1,28 +1,40 @@
 package 로또의_최고_순위와_최저_순위;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
-class Solution {
+public class Solution {
+
     public int[] solution(int[] lottos, int[] win_nums) {
-        int winCount = 0;
-        int eraseCount = 0;
 
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
-        for (int n: win_nums) {
-            arrayList.add(n);
+        Set<Integer> set = new HashSet<>();
+
+        int zeroCnt = 0;
+        for (int lotto : lottos) {
+            if (lotto == 0) {
+                zeroCnt++;
+            }
+            set.add(lotto);
         }
 
-        for (int n: lottos) {
-            if (n==0) {
-                eraseCount++;
-            } else if (arrayList.contains(n)) {
-                winCount++;
+        int minCnt = 0;
+        for (int winNum : win_nums) {
+            if (set.contains(winNum)) {
+                minCnt++;
             }
         }
 
-        int bestScore = (7-(winCount+eraseCount) != 7) ? 7-(winCount+eraseCount) : 6;
-        int worstScore = (7-winCount != 7) ? 7-winCount : 6;
+        int maxCnt = minCnt + zeroCnt;
+        int maxRank = maxCnt != 0 ? Math.abs(7 - maxCnt) : 6;
+        int minRank = minCnt != 0 ? Math.abs(7 - minCnt) : 6;
 
-        return new int[]{bestScore, worstScore};
+        return new int[]{maxRank, minRank};
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        System.out.println(Arrays.toString(
+            solution.solution(new int[]{5, 5, 5, 5, 5, 5}, new int[]{45, 4, 35, 20, 3, 9})));
     }
 }

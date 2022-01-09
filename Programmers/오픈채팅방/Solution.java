@@ -8,25 +8,26 @@ class Solution {
         HashMap<String, String> map = new HashMap<>();
         ArrayList<String> list = new ArrayList<>();
 
-        for (String str: record) {
-            String[] strArr = str.split(" ");
+        for (String str : record) {
+            String[] strs = str.split(" ");
 
-            if (strArr[0].equals("Enter")) {
-                list.add(strArr[1] + "님이 들어왔습니다.");
-                map.put(strArr[1], strArr[2]);
-            } else if (strArr[0].equals("Leave")) {
-                list.add(strArr[1] + "님이 나갔습니다.");
-            } else if (strArr[0].equals("Change")) {
-                map.put(strArr[1], strArr[2]);
+            switch (strs[0]) {
+                case "Enter" -> {
+                    list.add(strs[1] + "님이 들어왔습니다.");
+                    map.put(strs[1], strs[2]);
+                }
+                case "Leave" -> list.add(strs[1] + "님이 나갔습니다.");
+                case "Change" -> map.put(strs[1], strs[2]);
             }
         }
 
-        String[] result = new String[list.size()];
+        int size = list.size();
+        String[] result = new String[size];
 
-        for (int i = 0; i < list.size(); i++) {
-            String str = list.get(i);
-            String id = str.substring(0, str.indexOf("님"));
-            result[i] = str.replaceAll(id, map.get(id));
+        for (int i = 0; i < size; i++) {
+            String s = list.get(i);
+            String id = s.substring(0, s.indexOf("님"));
+            result[i] = s.replace(id, map.get(id));
         }
 
         return result;

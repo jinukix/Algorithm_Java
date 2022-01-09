@@ -3,6 +3,7 @@ package 기능개발;
 import java.util.ArrayList;
 
 class Solution {
+
     public int[] solution(int[] progresses, int[] speeds) {
         ArrayList<Integer> list = new ArrayList<>();
 
@@ -10,10 +11,12 @@ class Solution {
         int time = 0;
 
         for (int i = 0; i < progresses.length; i++) {
-            int t = (int) Math.ceil((100-progresses[i])/ (double)speeds[i]);
+            int t = (int) Math.ceil((100 - progresses[i]) / (double) speeds[i]);
 
             if (time < t) {
-                if (n!=0) list.add(n);
+                if (n != 0) {
+                    list.add(n);
+                }
                 time = t;
                 n = 1;
             } else {
@@ -33,8 +36,8 @@ class Solution {
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        int[] progresses = {93,30,55};
-        int[] speeds = {1,30,5};
+        int[] progresses = {93, 30, 55};
+        int[] speeds = {1, 30, 5};
         sol.solution(progresses, speeds);
     }
 }
