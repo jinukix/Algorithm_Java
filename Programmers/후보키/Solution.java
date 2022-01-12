@@ -56,13 +56,13 @@ class Solution {
 
             ArrayList<CandidateKey> l = new ArrayList<>();
 
-            for (int i = 0; i < relation.length; i++) {
+            for (String[] strings : relation) {
                 CandidateKey stringArr = new CandidateKey();
                 stringArr.stringArr = new String[relation.length];
                 int cnt = 0;
 
-                for (Integer j : set) {
-                    stringArr.stringArr[cnt++] = relation[i][j];
+                for (Integer i : set) {
+                    stringArr.stringArr[cnt++] = strings[i];
                 }
 
                 if (l.contains(stringArr)) {
