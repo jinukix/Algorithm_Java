@@ -132,7 +132,7 @@ public class Sorting {
             }
 
             if (left > right) {
-                swap(arr, right, pivot);// 엇갈린 경우
+                swap(arr, right, pivot); // 엇갈린 경우
             } else {
                 swap(arr, left, right);
             }
