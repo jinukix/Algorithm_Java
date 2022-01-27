@@ -11,30 +11,19 @@ class Solution {
         Map<String, HashSet<String>> reportMap = new HashMap<>();
         Map<String, Integer> cntMap = new HashMap<>();
 
-        for (String id : idList) {
+        Arrays.stream(idList).forEach(id -> {
             reportMap.put(id, new HashSet<>());
             cntMap.put(id, 0);
-        }
+        });
 
-        for (String s : report) {
-            String[] reportInfo = s.split(" ");
-            reportMap.get(reportInfo[1]).add(reportInfo[0]);
-        }
+        Arrays.stream(report).map(s -> s.split(" "))
+            .forEach(reportInfo -> reportMap.get(reportInfo[1]).add(reportInfo[0]));
 
-        for (String key : reportMap.keySet()) {
-            if (k <= reportMap.get(key).size()) {
-                for (String elem : reportMap.get(key)) {
-                    cntMap.put(elem, cntMap.getOrDefault(elem, 0) + 1);
-                }
-            }
-        }
+        reportMap.keySet().stream().filter(key -> k <= reportMap.get(key).size())
+            .flatMap(key -> reportMap.get(key).stream())
+            .forEach(elem -> cntMap.put(elem, cntMap.getOrDefault(elem, 0) + 1));
 
-        int[] result = new int[idList.length];
-        for (int i = 0; i < idList.length; i++) {
-            result[i] = cntMap.get(idList[i]);
-        }
-
-        return result;
+        return Arrays.stream(idList).mapToInt(cntMap::get).toArray();
     }
 
     public static void main(String[] args) {

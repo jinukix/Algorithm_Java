@@ -8,7 +8,8 @@ class Solution {
         Stack<Character> stack = new Stack<>();
         int cnt = 0;
 
-        for (char ch : s.toCharArray()) {
+        char[] charArray = s.toCharArray();
+        for (char ch : charArray) {
             stack.push(ch);
 
             if (stack.size() >= 3) {

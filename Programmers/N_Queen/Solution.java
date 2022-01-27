@@ -1,5 +1,7 @@
 package N_Queen;
 
+import java.util.stream.IntStream;
+
 public class Solution {
 
     int result = 0;
@@ -21,12 +23,8 @@ public class Solution {
     }
 
     public boolean check(int r) {
-        for (int i = 0; i < r; i++) {
-            if (graph[r] == graph[i] || Math.abs(r - i) == Math.abs(graph[r] - graph[i])) {
-                return false;
-            }
-        }
-        return true;
+        return IntStream.range(0, r).noneMatch(
+            i -> graph[r] == graph[i] || Math.abs(r - i) == Math.abs(graph[r] - graph[i]));
     }
 
     public int solution(int n) {

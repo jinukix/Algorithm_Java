@@ -1,6 +1,6 @@
 package 같은_숫자는_싫어;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Solution {
 
@@ -8,17 +8,14 @@ public class Solution {
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
         int prevNumber = 10;
-        for (int i : arr) {
-            if (prevNumber != i) {
-                arrayList.add(i);
-                prevNumber = i;
+        for (int n : arr) {
+            if (prevNumber != n) {
+                arrayList.add(n);
+                prevNumber = n;
             }
         }
 
-        int[] ans = new int[arrayList.size()];
-        for (int i = 0; i < arrayList.size(); i++) {
-            ans[i] = arrayList.get(i);
-        }
+        int[] ans = arrayList.stream().mapToInt(n -> n).toArray();
 
         return ans;
     }

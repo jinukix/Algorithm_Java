@@ -1,5 +1,7 @@
 package 가장_긴_팰린드롬;
 
+import java.util.stream.IntStream;
+
 class Solution {
 
     public int solution(String s) {
@@ -8,9 +10,7 @@ class Solution {
         char[] chars = s.toCharArray();
         int[][] dp = new int[l][l];
 
-        for (int i = 0; i < l; i++) {
-            dp[i][i] = 1;
-        }
+        IntStream.range(0, l).forEach(i -> dp[i][i] = 1);
 
         for (int i = 0; i < l - 1; i++) {
             if (chars[i] == chars[i + 1]) {
