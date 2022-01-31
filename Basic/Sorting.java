@@ -106,6 +106,8 @@ public class Sorting {
     /*
     퀵 정렬
 
+    평균 n*log(n) , 최악 n*n
+
     기준을 설정한 다음 큰 수와 작은 수를 swap 그 후 리스트를 반으로 나누는 방식으로 동작.
     특징으로는 pivot이 사용되어 큰 숫자와 작은 숫자를 비교할 때 교환하기 위한 기준이 됨
 
@@ -140,5 +142,27 @@ public class Sorting {
 
         quickSort(arr, start, right - 1);
         quickSort(arr, right + 1, end);
+    }
+
+    /*
+       gcd 최대공약수, lcm 최소공배수
+     */
+    static int gcd(int n, int m) {
+        while (m != 0) {
+            int r = n % m;
+            n = m;
+            m = r;
+        }
+        return n;
+
+//        if (n % m == 0) {
+//            return m;
+//        }
+//        return gcd(n, n%m);
+
+    }
+
+    static int lcm(int n, int m) {
+        return (n * m) / gcd(n, m);
     }
 }
