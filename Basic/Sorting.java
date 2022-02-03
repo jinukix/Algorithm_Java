@@ -144,9 +144,7 @@ public class Sorting {
         quickSort(arr, right + 1, end);
     }
 
-    /*
-       gcd 최대공약수, lcm 최소공배수
-     */
+    // gcd 최대공약수
     static int gcd(int n, int m) {
         while (m != 0) {
             int r = n % m;
@@ -159,9 +157,9 @@ public class Sorting {
 //            return m;
 //        }
 //        return gcd(n, n%m);
-
     }
 
+    // lcm 최소공배수
     static int lcm(int n, int m) {
         return (n * m) / gcd(n, m);
     }
